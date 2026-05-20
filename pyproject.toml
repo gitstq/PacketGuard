@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "packetguard"
+version = "1.0.0"
+description = "Lightweight Open-Source Package Supply Chain Security Threat Detection Engine"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+authors = [
+    {name = "PacketGuard Team"},
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+]
+
+[project.scripts]
+packetguard = "packetguard.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["packetguard*"]
+
+[tool.setuptools.package-data]
+packetguard = ["data/*.json"]

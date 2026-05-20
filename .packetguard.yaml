@@ -1,0 +1,42 @@
+# PacketGuard 默认配置文件 / PacketGuard Default Configuration File
+# 将此文件放在项目根目录下，命名为 .packetguard.yaml
+# Place this file in the project root as .packetguard.yaml
+
+# 通用设置 / General settings
+general:
+  ecosystem: auto           # 默认生态系统: auto/npm/pypi / Default ecosystem
+  output_format: text       # 输出格式: text/json/sarif/markdown/html / Output format
+  min_severity: low         # 最低报告等级: low/medium/high/critical / Min severity
+  timeout: 10               # HTTP 请求超时(秒) / HTTP timeout (seconds)
+  verbose: false            # 详细输出 / Verbose output
+
+# 检测规则开关 / Detection rule toggles
+rules:
+  typosquat: true           # 启用 Typosquatting 检测 / Enable typosquatting detection
+  starjacking: true         # 启用 Starjacking 检测 / Enable starjacking detection
+  malware: true             # 启用恶意包特征扫描 / Enable malware scanning
+  dependency: true          # 启用依赖分析 / Enable dependency analysis
+  intelligence: true        # 启用威胁情报检查 / Enable threat intelligence
+
+# 白名单 - 这些包将被跳过扫描 / Whitelist - these packages will be skipped
+whitelist:
+  - express
+  - lodash
+  - react
+  - vue
+  - flask
+  - requests
+  - numpy
+
+# 黑名单 - 这些包将被标记为恶意 / Blacklist - these packages will be flagged
+blacklist:
+  - crossenv
+  - event-stream3
+
+# 恶意包扫描详细配置 / Malware scan detailed configuration
+malware_scan:
+  check_network: true       # 检测网络请求 / Check network requests
+  check_filesystem: true    # 检测文件系统操作 / Check filesystem operations
+  check_execution: true     # 检测命令执行 / Check command execution
+  check_obfuscation: true   # 检测代码混淆 / Check code obfuscation
+  check_domains: true       # 检测可疑域名 / Check suspicious domains
